@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import FooterHome from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import ManageProjects from './pages/ManageProjects/ManageProjects';
 import CreateProject from './pages/CreateProject/CreateProject';
-import AllProjects from './pages/AllProjects/AllProjects';
+import {AllProjects} from './pages/AllProjects/AllProjects';
 import Donate from './pages/Donate/Donate';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <>
       <Router>
         <Header isAccountVisible={true}/>
-        <div>
+        <div className='bg-gray-900 dark:bg-gray-900'>
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/manage" Component={ManageProjects} />
@@ -21,12 +21,14 @@ function App() {
             <Route path="/donate" Component={Donate} />
           </Routes>
         </div> 
-        <Footer />
+        
       </Router>
+      <FooterHome />
     </>
-  )
+  );
 }
 
-export default App ;
+export default App;
+
 
 

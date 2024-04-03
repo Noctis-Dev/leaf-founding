@@ -1,7 +1,10 @@
+import DonateCard from '../../components/Donate/DonateCard';
 
 function Donate() {
   return (
-    <div>Donate</div>
+    <div className='h-full w-full'>
+       <DonateCard />
+    </div>
   )
 }
 

@@ -1,8 +1,12 @@
-
+import { FormCreate } from "../../components/FormCreate/FormCreate"
 
 function CreateProject() {
+  
+
   return (
-    <div>CreateProject</div>
+    <div>
+      <FormCreate />
+    </div>
   )
 }
 

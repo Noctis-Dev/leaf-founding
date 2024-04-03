@@ -19,13 +19,13 @@ function Header({ isAccountVisible }: Props) {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse className='justify-end'>
-        <Navbar.Link href="#" active>
+        <Navbar.Link href="/" active>
           Home
         </Navbar.Link>
         <Navbar.Link href="/create">
             Crear Proyecto          
         </Navbar.Link>
-        <Navbar.Link href="#">Todos los proyectos</Navbar.Link>
+        <Navbar.Link href="/all">Todos los proyectos</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   )

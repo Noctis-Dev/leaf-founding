@@ -10,7 +10,7 @@ const myTheme = {
 function BannerOne() {
   return (
     <div>
-      <section className="bg-gray-900 dark:bg-gray-900 ">
+      <section>
         <div className="mx-auto max-w-screen-xl items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-12 xl:gap-16">
           <div className="text-gray-400 dark:text-gray-400 sm:text-lg">
             <h2 className="mb-8 text-4xl font-extrabold tracking-tight text-green-500 dark:text-green-500">
