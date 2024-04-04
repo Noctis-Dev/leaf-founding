@@ -1,17 +1,21 @@
+import { useAccount } from "@gear-js/react-hooks";
 import { useAccountStore } from "../../../hooks/useAccountStore";
 import { AccountsButton } from "./AccountsButton";
+import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
+
 
 type Props = {
-    list: number[];
-    onChange: (account: number) => void;
+    list: InjectedAccountWithMeta[];
+    onChange: (account: InjectedAccountWithMeta) => void;
   };
 
 function Accounts({ list, onChange }: Props) {
+    const { login } = useAccount();
     const isAnyAccount = list.length > 0;
-    const { setAccount } = useAccountStore() as { setAccount: (account: number) => void };
-    const { login } = useAccountStore() as { login: (account: number) => void };
+    const { setAccount } = useAccountStore() as { setAccount: (account: InjectedAccountWithMeta) => void };
 
-    const handleLogin = (account: number) =>  {
+
+    const handleLogin = (account: InjectedAccountWithMeta) =>  {
         login(account);
         setAccount(account);
         onChange(account);
@@ -20,8 +24,8 @@ function Accounts({ list, onChange }: Props) {
     const getAccounts = () => {
         return list.map((account) => {
             return (
-                <li key={''} className="flex w-full">
-                    <AccountsButton account={account} name={'no'} onClick={() => handleLogin(account)}></AccountsButton>
+                <li key={account.address} className="flex w-full">
+                    <AccountsButton account={account} name={account.meta.name} onClick={() => handleLogin(account)}></AccountsButton>
                 </li>
             )
         })

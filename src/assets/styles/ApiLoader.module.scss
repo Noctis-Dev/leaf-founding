@@ -2,7 +2,6 @@
 @use './shared' as *;
 
 .loader {
-  @extend %absoluteCenter;
   font-size: $fontSizeLarge;
 
   &::after {

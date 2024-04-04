@@ -7,7 +7,7 @@ function ButtonsCreate({ handle }: Props) {
     return (
         <div className="flex items-start mt-5 gap-6 pb-7">
             <button type="button" onClick={handle} className="w-1/4 h-10 p-2.5 text-md font-medium text-gray-800 bg-green-500 justify-center rounded-md focus:ring-4 focus:outline-none focus:ring-green-600">
-                Publicar
+                Continuar
             </button>
 
             <button type="button" className="mb-11 w-1/4 flex items-center justify-center text-gray-400 bg-slate-700 hover:bg-red-700 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2">

@@ -1,7 +1,7 @@
+import { useAccount } from '@gear-js/react-hooks';
+import Identicon from '@polkadot/react-identicon';
 import { Dropdown } from 'flowbite-react';
-
-
-
+import { useNavigate } from 'react-router-dom';
 interface WalletProps{
     balance: {
         value: string;
@@ -14,12 +14,14 @@ interface WalletProps{
 
 function Wallet({balance, address, name, onClick}: WalletProps) {
 
-    const logout = () => {
-        localStorage.removeItem('address')
-        localStorage.removeItem('name')
-        localStorage.removeItem('balance')
-        window.location.reload()
+    const navigate = useNavigate();
+
+    const handleManageProject = () => {
+        navigate("/manage");
     }
+
+    const { logout } = useAccount();
+
     const handleLogout = () => {
         logout()
     }
@@ -31,18 +33,20 @@ function Wallet({balance, address, name, onClick}: WalletProps) {
                 <span className="text-white">{balance?.unit}</span>
             </div>
             <Dropdown
-                label="Account"
-                inline
-                arrowIcon={false}
-            >
-                <Dropdown.Header>
-                    <div className="grid grid-cols-2 gap-2 flex items-center">
-                        <span className="text-white">{address}</span>
-                        <span className="block text-sm" onClick={onClick}>{name}</span>
-                    </div>
-                </Dropdown.Header>
-                <Dropdown.Divider />
+            label={<Identicon value={address} size={28} theme="polkadot" className=""/>}
+            inline
+            arrowIcon={false}
+            > 
+           <Dropdown.Header>
+             <div className="grid grid-cols-2 gap-2 flex items-center">
+                
+             <Identicon value={address} size={28} theme="polkadot" />
+             <span className="block text-sm" onClick={onClick}>{name}</span>
+             </div>
+           </Dropdown.Header>
+           <Dropdown.Divider />
                 <Dropdown.Item onClick={() => handleLogout()}>Sign out</Dropdown.Item>
+                <Dropdown.Item onClick={handleManageProject}>Manage Project</Dropdown.Item>
             </Dropdown>
         </div>
     )

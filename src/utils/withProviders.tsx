@@ -10,7 +10,7 @@ import {
   import { ADDRESS } from '../context/constContext';
   
   function ApiProvider({ children }: ProviderProps) {
-    return <GearApiProvider initialArgs={{ endpoint: ADDRESS.NODE }}>{children}</GearApiProvider>;
+    return <GearApiProvider initialArgs={{ endpoint: 'wss://testnet.vara.network' }}>{children}</GearApiProvider>;
   }
   
   function AlertProvider({ children }: ProviderProps) {

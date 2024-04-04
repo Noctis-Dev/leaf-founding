@@ -1,21 +1,54 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import  ButtonsCreate  from './ButtonsCreate';
+import ButtonsCreate from './ButtonsCreate';
+import { useProjectData } from '../../hooks/useProjectData';
 
 function FormCreate() {
-    const handlesaveClick = async () => {
-        console.log('hola')
+
+    const [projectData, setProjectData] = useProjectData();
+
+
+    const navigate = useNavigate();
+    
+    const handlesaveClick = () => {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        console.log(projectData);
+        
+        const raw = JSON.stringify({
+            "message": projectData.description
+        });
+        fetch("https://noctis-api-xlsdduh27q-uc.a.run.app/gen-ai/project-recomendations", {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        })
+            .then((response) => {
+                console.log(response);
+                return response.text();
+            })
+            .then((result) => {
+                console.log(result);
+                setProjectData(prevData => ({ ...prevData, recomend: result }))
+                navigate("/create/confirm");
+            })
+            .catch((error) => console.error(error));
+        
     }
 
     const [title, setTitle] = useState("");
 
     const TitleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setTitle(event.target.value);
+        setProjectData(prevData => ({ ...prevData, name: title }))
     };
 
     const [description, setDescription] = useState("");
     const DescriptionInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setDescription(event.target.value);
+        setProjectData(prevData => ({ ...prevData, description: description }))
     };
 
     const [image, setImage] = useState<File | null>(null);

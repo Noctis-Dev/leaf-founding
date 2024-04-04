@@ -1,15 +1,19 @@
 import { Modal } from "flowbite-react";
+import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { Accounts } from "./Accounts";
 
 type Props = {
-    accounts: number[] | undefined;
+    accounts: InjectedAccountWithMeta[] | undefined;
     close: () => void;
-  };
+    show: boolean;
+};
 
-function AccountsModal({ accounts, close }: Props) {
+function AccountsModal({ accounts, close, show }: Props) {
     console.log(accounts)
     return (
-        <Modal title='hola' onClose={close} className="flex justify-center justify-items-center">
+        <Modal onClose={close} className="flex justify-center justify-items-center" show={show}>
+            <Modal.Header>Accounts</Modal.Header>
+            <Modal.Body>
             {accounts ? (
                 <Accounts list={accounts} onChange={close} />
             ) : (
@@ -23,6 +27,7 @@ function AccountsModal({ accounts, close }: Props) {
                     </a>.
                 </p>
             )}
+            </Modal.Body>
         </Modal>
     )
 }
