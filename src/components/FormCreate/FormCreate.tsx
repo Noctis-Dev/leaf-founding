@@ -23,7 +23,6 @@ function FormCreate() {
             method: "POST",
             headers: myHeaders,
             body: raw,
-            redirect: "follow"
         })
             .then((response) => {
                 console.log(response);

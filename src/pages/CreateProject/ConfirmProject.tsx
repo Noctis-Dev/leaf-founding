@@ -2,10 +2,12 @@ import { useState } from "react";
 import MessageTips from "../../components/FormCreate/MessageTips";
 import InfoConfirm from "../../components/FormCreate/InfoConfirm";
 import { useNavigate } from 'react-router-dom';
+import { useProjectData } from "../../hooks/useProjectData";
 
 
 function ConfirmProject() {
     const [showSuggestion, setShowSuggestion] = useState(false);
+    const [projectData, setProjectData] = useProjectData();
 
     const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ function ConfirmProject() {
                 <div className="mr-2 w-3/4">
                     <InfoConfirm />
                 </div>
-                {showSuggestion && <MessageTips />}
+                {showSuggestion && <MessageTips text={projectData.recomend} />}
             </div>
             <div className="flex items-start mt-10 gap-6 pb-7">
                 <button type="button" onClick={handlesaveClick} className="w-1/7 h-10 p-2.5 text-md font-medium text-gray-800 bg-green-500 justify-center rounded-md focus:ring-4 focus:outline-none focus:ring-green-600">
