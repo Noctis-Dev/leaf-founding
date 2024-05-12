@@ -12,7 +12,7 @@ function ConfirmProject() {
     const navigate = useNavigate();
 
     const handlesaveClick = () => {
-        navigate("/create/Milestones");
+        navigate("/");
     }
 
     return (
@@ -22,10 +22,10 @@ function ConfirmProject() {
                 Mostrar/Ocultar sugerencia
             </button>
             <div className="flex ">
-                <div className="mr-2 w-3/4">
+                <div className="mr-2 w-1/2">
                     <InfoConfirm />
                 </div>
-                {showSuggestion && <MessageTips text={projectData.recomend} />}
+                {showSuggestion && <MessageTips message={projectData.recomend} />}
             </div>
             <div className="flex items-start mt-10 gap-6 pb-7">
                 <button type="button" onClick={handlesaveClick} className="w-1/7 h-10 p-2.5 text-md font-medium text-gray-800 bg-green-500 justify-center rounded-md focus:ring-4 focus:outline-none focus:ring-green-600">

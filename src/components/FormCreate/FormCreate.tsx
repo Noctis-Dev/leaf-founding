@@ -15,11 +15,11 @@ function FormCreate() {
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         console.log(projectData);
-        
+
         const raw = JSON.stringify({
             "message": projectData.description
         });
-        fetch("https://noctis-api-xlsdduh27q-uc.a.run.app/gen-ai/project-recomendations", {
+        fetch("http://192.168.78.82:4000/gen-ai/project-recomendations", {
             method: "POST",
             headers: myHeaders,
             body: raw,
@@ -186,7 +186,7 @@ function FormCreate() {
                     </div>
                     <label htmlFor="terms" className="ml-2 text-sm font-medium text-white dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
                 </div>
-                <ButtonsCreate handle={handlesaveClick} />
+                <ButtonsCreate handle={() => navigate("/create/milestones")} />
             </form>
         </div>
 

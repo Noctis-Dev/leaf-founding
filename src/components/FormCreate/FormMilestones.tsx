@@ -8,7 +8,7 @@ function FormMilestones() {
     const navigate = useNavigate();
 
     const handlesaveClick = () => {
-        navigate("/");
+        navigate("/create/confirm");
     }
 
     const [milestone1, setMilestone1] = useState("");

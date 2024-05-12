@@ -6,11 +6,11 @@ import TittleTwo from "../InfoSection/TittleTwo"
 function InfoConfirm() {
     return (
       <div>
-        <TittleOne/ >
-        <Description/ >
-        <TittleTwo/ >
-        <Subtittle/ >
-        <Description/ >
+        <TittleOne />
+        <Description />
+        <TittleTwo />
+        <Subtittle />
+        <Description />
       </div>
     )
   }

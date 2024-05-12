@@ -30,7 +30,7 @@ function App() {
             <Route path="/manage" Component={ManageProjects} />
             <Route path="/create" Component={CreateProject} />
             <Route path="/create/confirm" Component={ConfirmProject} />
-            <Route path="/create/Milestones" Component={Milestones} />
+            <Route path="/create/milestones" Component={Milestones} />
             <Route path="/all" Component={AllProjects} />
             <Route path="/donate" Component={Donate} />
           </Routes> : <ApiLoader />

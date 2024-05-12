@@ -8,7 +8,6 @@ function ReplyCard() {
         <div className="mt-2">
         <DescriptionUpdate />
         </div>
-
     </div>
   )
 }
